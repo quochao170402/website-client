@@ -49,3 +49,5 @@ jobs:
         run: docker compose pull
       - name: Build and run
         run: docker compose up -d --build
+      - name: Clear docker
+        run: docker system prune -f
