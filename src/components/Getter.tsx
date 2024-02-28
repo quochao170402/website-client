@@ -12,7 +12,7 @@ const Getter = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
   async function getUsers(): Promise<Note[]> {
-    const response = await axios.get<Note[]>("http://localhost:3001/notes");
+    const response = await axios.get<Note[]>("https://quochao.id.vn/api/notes");
     return response.data;
   }
 
