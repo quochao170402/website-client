@@ -18,29 +18,24 @@ env:
 jobs:
   build:
     runs-on: [ self-hosted ]
-    
+  
+    strategy:
+      matrix:
+        node-version: [14.x, 16.x, 18.x]
+        
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      
-      - name: Pull code
-        working-directory: '/home/quochao/website/website-client'
-        run: git pull origin master
-      
-      # - name: Login to Docker Hub
-      #   uses: docker/login-action@v3
-      #   with:
-      #     username: ${{ secrets.DOCKERHUB_USERNAME }}
-      #     password: ${{ secrets.DOCKERHUB_TOKEN }}
-      
-      # - name: Build and push
-      #   uses: docker/build-push-action@v4
-      #   with:
-      #     context: .
-      #     file: "./Dockerfile"
-      #     push: true
-      #     tags: quochao170402/website-client:latest
 
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+      
+      - run: yarn install
+      - run: yarn build
+      - run: yarn test
+      
   deploy:
     needs: build
     runs-on: [ self-hosted ]
@@ -49,8 +44,9 @@ jobs:
         working-directory: '/home/quochao/website'
     
     steps:
-      # - name: Pull latest images
-      #   run: docker compose pull
+      - name: Pull code
+        working-directory: '/home/quochao/website/website-client'
+        run: git pull origin master
         
       - name: Build and run
         run: docker compose up -d --build
