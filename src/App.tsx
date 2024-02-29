@@ -8,7 +8,7 @@ function App() {
       <Getter />
       <header className="App-header">
         
-        <h1>Hello world Improve CI/CD</h1>
+        <h1>Final test</h1>
         <a
           className="App-link"
           href="https://www.youtube.com/watch?v=ahRxhAzyMWI"
