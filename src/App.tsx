@@ -1,6 +1,5 @@
 import "./App.css";
 import Getter from "./components/Getter";
-import logo from "./logo.svg";
 
 function App() {
   return (
@@ -8,8 +7,8 @@ function App() {
       <h1>Check CICD</h1>
       <Getter />
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <h1>Hello world</h1>
+        
+        <h1>Hello world Improve CI/CD</h1>
         <a
           className="App-link"
           href="https://www.youtube.com/watch?v=ahRxhAzyMWI"
