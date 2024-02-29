@@ -9,9 +9,9 @@ function App() {
       <Getter/>
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload Check CICD Website-Client.
-        </p>
+        <h1>
+          Hello world
+        </h1>
         <a
           className="App-link"
           href="https://reactjs.org"
